@@ -15,26 +15,47 @@
 
 <ion-content padding>
   <canvas #stockcanvas></canvas>
-  <span>
-    <button ion-item detail-none >
-      <h2 [style.color]="ticker.change > 0 ? 'green' : 'red'">
-        {{ ticker.title }}
-      </h2>
-    </button>
-    <ion-item text-wrap>
-      <p>
-        {{ ticker.suggestion }}
-      </p>
-      <h1 [style.color]="ticker.change > 0 ? 'green' : 'red'">
-        {{ ticker.price }}
-      </h1>
-      <p [style.color]="ticker.change > 0 ? 'green' : 'red'">
-        {{ ticker.change }}
-      </p>
-      <!--<button ion-button item-end (click)="goToStock(ticker)">-->
-        <!--View-->
-        <!--<ion-icon name="arrow-forward"></ion-icon>-->
-      <!--</button>-->
-    </ion-item>
-  </span>
+  <ion-list>
+    <span>
+      <button ion-item detail-none>
+        <h2 [style.color]="ticker.change > 0 ? 'green' : 'red'">
+          {{ ticker.title }}
+        </h2>
+      </button>
+      <ion-item text-wrap>
+        <p>
+          {{ ticker.suggestion }}
+        </p>
+        <h1 [style.color]="ticker.change > 0 ? 'green' : 'red'">
+          {{ ticker.price }}
+        </h1>
+        <p [style.color]="ticker.change > 0 ? 'green' : 'red'">
+          {{ ticker.change }}
+        </p>
+      </ion-item>
+    </span>
+    <ion-item-divider></ion-item-divider>
+  </ion-list>
+  <canvas #doughnutCanvas></canvas>
+  <ion-list>
+    <span>
+      <button ion-item detail-none>
+        <h2 [style.color]="ticker.change > 0 ? 'green' : 'red'">
+          {{ ticker.title }}
+        </h2>
+      </button>
+      <ion-item text-wrap>
+        <p>
+          {{ ticker.suggestion }}
+        </p>
+        <h1 [style.color]="ticker.change > 0 ? 'green' : 'red'">
+          {{ ticker.price }}
+        </h1>
+        <p [style.color]="ticker.change > 0 ? 'green' : 'red'">
+          {{ ticker.change }}
+        </p>
+      </ion-item>
+    </span>
+  </ion-list>
+
 </ion-content>
