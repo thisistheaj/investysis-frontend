@@ -21,6 +21,37 @@ export class MainPage {
   public tickerLists: any = [
     {
       title: 'New',
+      shown: true,
+      tickers: [
+        {
+          title: 'AAPL',
+          suggestion: 'Did a thing',
+          shown: false,
+          price: 134.67,
+          change: -47.23
+        }, {
+          title: 'GOOG',
+          suggestion: 'over selling',
+          shown: false,
+          price: 134.67,
+          change: 8.2
+        }, {
+          title: 'NASDAQ',
+          suggestion: 'changed more',
+          shown: false,
+          price: 134.67,
+          change: -38.0
+        }, {
+          title: 'IBX',
+          suggestion: 'new thing',
+          shown: false,
+          price: 134.67,
+          change: 9.78
+        }
+      ]
+    }, {
+      title: 'Trending',
+      shown: true,
       tickers: [
         {
           title: 'AAPL',
@@ -59,7 +90,6 @@ export class MainPage {
 
   ionViewDidLoad() {
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
-
       type: 'line',
       data: {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -99,6 +129,11 @@ export class MainPage {
   public toggleShownTicker(listIndex, tickerIndex) {
     console.log(listIndex, tickerIndex);
     this.tickerLists[listIndex].tickers[tickerIndex].shown = !this.tickerLists[listIndex].tickers[tickerIndex].shown;
+  }
+
+  public toggleShownList(listIndex) {
+    console.log(listIndex);
+    this.tickerLists[listIndex].shown = !this.tickerLists[listIndex].shown;
   }
 
   public goToStock(ticker) {

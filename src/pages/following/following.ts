@@ -15,11 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FollowingPage {
 
+  public tickers: any[] = [
+    {
+      title: 'AAPL',
+      price: 134.67,
+      change: -47.23
+    }
+  ];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FollowingPage');
+  }
+
+  public searchCallback(evt) {
+    console.log('Searching: ', evt)
   }
 
 }

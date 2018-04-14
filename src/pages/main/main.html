@@ -21,32 +21,36 @@
 <ion-content>
   <canvas #lineCanvas></canvas>
     <ion-list *ngFor="let list of tickerLists; let listIndex = index">
-      <ion-list-header>
+      <button ion-item color="light" (click)="toggleShownList(listIndex)">
         {{list.title}}
-      </ion-list-header>
-      <span *ngFor="let ticker of list.tickers; let tickerIndex = index">
-        <button ion-item detail-none (click)="toggleShownTicker(listIndex, tickerIndex)">
-          <h2 [style.color]="ticker.change > 0 ? 'green' : 'red'">
-            {{ ticker.title }}
-          </h2>
-          <ion-icon name="arrow-back" item-end *ngIf="!ticker.shown"></ion-icon>
-          <ion-icon name="arrow-down" item-end *ngIf="ticker.shown"></ion-icon>
-        </button>
-        <ion-item text-wrap *ngIf="ticker.shown">
-          <p>
-            {{ ticker.suggestion }}
-          </p>
-          <h1 [style.color]="ticker.change > 0 ? 'green' : 'red'">
-            {{ ticker.price }}
-          </h1>
-          <p [style.color]="ticker.change > 0 ? 'green' : 'red'">
-            {{ ticker.change }}
-          </p>
-          <button ion-button item-end (click)="goToStock(ticker)">
-            View
-            <ion-icon name="arrow-forward"></ion-icon>
+        <ion-icon name="arrow-back" item-end *ngIf="!list.shown"></ion-icon>
+        <ion-icon name="arrow-down" item-end *ngIf="list.shown"></ion-icon>
+      </button>
+      <span *ngIf="list.shown">
+        <span *ngFor="let ticker of list.tickers; let tickerIndex = index">
+          <button ion-item detail-none (click)="toggleShownTicker(listIndex, tickerIndex)">
+            <h2 [style.color]="ticker.change > 0 ? 'green' : 'red'">
+              {{ ticker.title }}
+            </h2>
+            <ion-icon name="arrow-back" item-end *ngIf="!ticker.shown"></ion-icon>
+            <ion-icon name="arrow-down" item-end *ngIf="ticker.shown"></ion-icon>
           </button>
-        </ion-item>
+          <ion-item text-wrap *ngIf="ticker.shown">
+            <p>
+              {{ ticker.suggestion }}
+            </p>
+            <h1 [style.color]="ticker.change > 0 ? 'green' : 'red'">
+              ${{ ticker.price }}
+            </h1>
+            <p [style.color]="ticker.change > 0 ? 'green' : 'red'">
+              {{ ticker.change }}%
+            </p>
+            <button ion-button item-end (click)="goToStock(ticker)">
+              View
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+          </ion-item>
+        </span>
       </span>
     </ion-list>
 </ion-content>

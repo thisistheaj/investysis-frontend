@@ -13,6 +13,27 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-searchbar (ionInput)="searchCallback($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item *ngFor="let ticker of tickers">
+        <h1 [style.color]="ticker.change > 0 ? 'green' : 'red'">${{ ticker.price }}</h1>
+        <ion-note [style.color]="ticker.change > 0 ? 'green' : 'red'">{{ ticker.change }}%</ion-note>
+        <!--<button item-end ion-button>-->
+          <!--Watch-->
+        <!--</button>-->
+        <h1 item-end>{{ ticker.title }}</h1>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="secondary">
+          Watch
+        </button>
+        <button ion-button color="danger">
+          Remove
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
 </ion-content>
