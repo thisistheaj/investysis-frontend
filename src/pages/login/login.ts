@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {MainPage} from "../main/main";
 
 /**
  * Generated class for the LoginPage page.
@@ -33,7 +34,7 @@ export class LoginPage {
   }
 
   public signUp() {
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.push(MainPage);
     // this.authPvdr.logInWithEmail(this.form.get('email').value, this.form.get('password').value).then(successData => {
     //   if (!successData.code) {
     //     this.navCtrl.push(TabsPage);
