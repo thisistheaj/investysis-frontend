@@ -12,6 +12,7 @@ import {MainPage} from "../pages/main/main";
 import {StockPage} from "../pages/stock/stock";
 import {FollowingPage} from "../pages/following/following";
 import {PortfolioPage} from '../pages/portfolio/portfolio';
+import {ManagePortfolioPage} from "../pages/manage-portfolio/manage-portfolio";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {PortfolioPage} from '../pages/portfolio/portfolio';
     MainPage,
     StockPage,
     FollowingPage,
-    PortfolioPage
+    PortfolioPage,
+    ManagePortfolioPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import {PortfolioPage} from '../pages/portfolio/portfolio';
     MainPage,
     StockPage,
     FollowingPage,
-    PortfolioPage
+    PortfolioPage,
+    ManagePortfolioPage
   ],
   providers: [
     StatusBar,
