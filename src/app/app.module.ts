@@ -11,6 +11,7 @@ import {LoginPage} from "../pages/login/login";
 import {MainPage} from "../pages/main/main";
 import {StockPage} from "../pages/stock/stock";
 import {FollowingPage} from "../pages/following/following";
+import {PortfolioPage} from '../pages/portfolio/portfolio';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FollowingPage} from "../pages/following/following";
     LoginPage,
     MainPage,
     StockPage,
-    FollowingPage
+    FollowingPage,
+    PortfolioPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import {FollowingPage} from "../pages/following/following";
     LoginPage,
     MainPage,
     StockPage,
-    FollowingPage
+    FollowingPage,
+    PortfolioPage
   ],
   providers: [
     StatusBar,
