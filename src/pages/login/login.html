@@ -14,5 +14,27 @@
 
 
 <ion-content padding>
-
+  <img src="assets/imgs/logo.png">
+  <h2>Investysis</h2>
+  <form [formGroup]="form"  (submit)="signUp()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>
+          Email
+          <span [style.display]="form.get('email').invalid ? 'inline' : 'none'" [style.color]="'red'">*</span>
+        </ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>
+          Password
+          <span [style.display]="form.get('password').invalid ? 'inline' : 'none'" [style.color]="'red'">*</span>
+        </ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <!--<button ion-button block type="submit" [disabled]="form.invalid">Log In</button>-->
+    <button ion-button block type="submit">Log In</button>
+  </form>
+  <!--<a (click)="goToForgotPassword()">Forgot Password?</a>-->
 </ion-content>

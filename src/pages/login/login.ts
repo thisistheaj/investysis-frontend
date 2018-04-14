@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {TabsPage} from "../tabs/tabs";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 /**
  * Generated class for the LoginPage page.
@@ -15,11 +17,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public form: FormGroup;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public fb: FormBuilder) {
+    this.form = fb.group({
+      email: ['', Validators.compose([Validators.email, Validators.required])],
+      password: ['', Validators.compose([Validators.minLength(8), Validators.required])]
+    });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    console.log('ionViewDidLoad SignUpPage');
   }
+
+  public signUp() {
+    this.navCtrl.push(TabsPage);
+    // this.authPvdr.logInWithEmail(this.form.get('email').value, this.form.get('password').value).then(successData => {
+    //   if (!successData.code) {
+    //     this.navCtrl.push(TabsPage);
+    //   } else {
+    //     alert(successData.message);
+    //   }
+    // }).catch(errorData => {
+    //   alert('Could not log in because ' + errorData.message);
+    // });
+  }
+
+  // public goToForgotPassword() {
+  //   this.navCtrl.push(ForgotPasswordPage);
+  // }
 
 }
